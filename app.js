@@ -1,4 +1,4 @@
-import router from "router/index.js"
+import router from "./router/index.js"
 import express from "express"
 const PORT=4000
 const server=express()

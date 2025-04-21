@@ -10,9 +10,10 @@ function GETID(req,res){
 
 
 function POST(req,res){
+      
       const {firstname,lastname,cours,faculty}=req.body
       try{
-            if(firstname || lastname || faculty || cours){
+            if(!firstname || !lastname || !faculty || !cours){
                   throw Error("Invalid something")
             }
             const newUser={
@@ -26,7 +27,6 @@ function POST(req,res){
             fs.writeFileSync("./database/users.json",JSON.stringify(users,null,4))
             res.status(201)
             res.send("Success added")
-            res.send(JSON.stringify(newUser))
       }
       catch(error){
             res.status(400)

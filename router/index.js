@@ -1,4 +1,4 @@
-import control from "./controllers/users.js"
+import control from "../controllers/users.js"
 import { Router } from "express"
 
 
@@ -10,6 +10,4 @@ router
       .delete("/api/students/:id",control.DELETE)
       .post("/api/students/",control.POST)
       .put("/api/students/:id",control.PUT)
-export default {
-      router
-}
+export default router
