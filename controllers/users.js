@@ -35,7 +35,15 @@ function POST(req,res){
 }
 
 function PUT(req,res){
+       try {
+              let {id}=req.params
 
+              let update=users.find(user=>user.id==parseInt(id)? {...user,...req.body}:user)
+              fs.writeFileSync("./data.json",JSON.stringify(update,null,2))
+              res.json({message:"user ozgartirildi"})
+          } catch (error) {
+              res.status(500).json({message:"serverda xatolik",error:error.message})
+          }
 }
 
 
