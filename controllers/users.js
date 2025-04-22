@@ -7,10 +7,9 @@ function GETALL(req,res){
 function GETID(req,res){
    try {
       let { id } = req.query;
-      let user = users.find(el => el.id == id);
   
-      if (user) {
-          res.status(200).json(user);
+      if (users.some((user)=>user.id==id)) {
+          res.status(200).json(users.filter(user=>user.id==id));
       } else {
           res.status(404).json({ message: "User not found" });
       }
@@ -71,21 +70,20 @@ function PUT(req,res){
 function DELETE(req, res) {
       try {
             let { Id } = req.params;
-            let user = users.find((user) => user.id == Id);
-            if (!user) {
-               return res.status(404).json({
-                   status: 404,
-                   message: "User not found",
-               });
+            if (!users.some((user)=>user.id==Id)){
+                  res.status(404).json({
+                        status: 404,
+                        message: "User not found",
+            });
            }
            users = users.filter((user) => user.id != Id);
-           fs.writeFileSync(path.join(process.cwd(), "src1/database/users.json"), JSON.stringify(users, null, 2));
+           fs.writeFileSync("./database/users.json", JSON.stringify(users, null, 2));
            return res.status(200).json({
                status: 200,
                message: "User deleted successfully",
            });
       } catch (error) {
-            res.status(500).json({message:"serverda xatolik",error:error.message})
+            res.status(400).json({message:"Ozodbek xatolik qildi",error:error.message})
       }
      
     }

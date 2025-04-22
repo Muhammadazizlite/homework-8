@@ -1,37 +1,37 @@
 [
-    {
-        "id": 1,
-        "firstname": "Ali",
-        "lastname": "Vali",
-        "faculty": "Biologiya",
-        "cours": 3
-    },
-    {
-        "id": 2,
-        "firstname": "Ali",
-        "lastname": "Vali",
-        "faculty": "Biologiya",
-        "cours": 3
-    },
-    {
-        "id": 3,
-        "firstname": "Ali",
-        "lastname": "Vali",
-        "faculty": "Biologiya",
-        "cours": 3
-    },
-    {
-        "id": 4,
-        "firstname": "Ali",
-        "lastname": "Vali",
-        "faculty": "Biologiya",
-        "cours": 3
-    },
-    {
-        "id": 5,
-        "firstname": "Ali",
-        "lastname": "Vali",
-        "faculty": "Biologiya",
-        "cours": 3
-    }
+  {
+    "id": 1,
+    "firstname": "Ali",
+    "lastname": "Vali",
+    "faculty": "Biologiya",
+    "cours": 3
+  },
+  {
+    "id": 2,
+    "firstname": "Ali",
+    "lastname": "Vali",
+    "faculty": "Biologiya",
+    "cours": 3
+  },
+  {
+    "id": 3,
+    "firstname": "Ali",
+    "lastname": "Vali",
+    "faculty": "Biologiya",
+    "cours": 3
+  },
+  {
+    "id": 4,
+    "firstname": "Ali",
+    "lastname": "Vali",
+    "faculty": "Biologiya",
+    "cours": 3
+  },
+  {
+    "id": 5,
+    "firstname": "Ali",
+    "lastname": "Vali",
+    "faculty": "Biologiya",
+    "cours": 3
+  }
 ]
