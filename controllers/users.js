@@ -6,7 +6,7 @@ function GETALL(req,res){
 
 function GETID(req,res){
    try {
-      let { id } = req.query;
+      let { id } = req.params;
       let user = users.find(el => el.id == id);
   
       if (user) {
