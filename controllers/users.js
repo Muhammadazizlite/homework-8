@@ -14,6 +14,7 @@ function GETID(req,res){
       } else {
           res.status(404).json({ message: "User not found" });
       }
+
    } catch(error) {
            res.status(400).json({
             status: 400,
@@ -65,30 +66,24 @@ function PUT(req,res){
 
 function DELETE(req, res) {
       try {
-        const { id, firstname, lastname, course, faculty } = req.query;
-        users = users.filter(el => {
-            return (
-              String(el.id) !== String(id) ||
-              String(el.firstname) !== String(firstname) ||
-              String(el.lastname) !== String(lastname) ||
-              String(el.course) !== String(course) ||
-              String(el.faculty) !== String(faculty)
-            );
-          });          
-
-        fs.writeFileSync("./database/users.json", JSON.stringify(users, null, 2));
-    
-        res.status(200).json({
-          status: 200,
-          message: "Successfully deleted"
-        });
+            let { Id } = req.params;
+            let user = users.find((user) => user.id == Id);
+            if (!user) {
+               return res.status(404).json({
+                   status: 404,
+                   message: "User not found",
+               });
+           }
+           users = users.filter((user) => user.id != Id);
+           fs.writeFileSync(path.join(process.cwd(), "src1/database/users.json"), JSON.stringify(users, null, 2));
+           return res.status(200).json({
+               status: 200,
+               message: "User deleted successfully",
+           });
       } catch (error) {
-        res.status(500).json({
-          status: 500,
-          message: "Error Xaltos",
-          error: error.message
-        });
+            res.status(500).json({message:"serverda xatolik",error:error.message})
       }
+     
     }
 
 
