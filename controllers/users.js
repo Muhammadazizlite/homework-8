@@ -42,6 +42,7 @@ function POST(req,res){
             users.push(newUser)
             fs.writeFileSync("./database/users.json",JSON.stringify(users,null,4))
             res.status(201)
+            
             res.send("Success added")
       }
       catch(error){
@@ -51,15 +52,18 @@ function POST(req,res){
 }
 
 function PUT(req,res){
-       try {
-              let {id}=req.params
-
-              let update=users.find(user=>user.id==parseInt(id)? {...user,...req.body}:user)
-              fs.writeFileSync("./data.json",JSON.stringify(update,null,2))
-              res.json({message:"user ozgartirildi"})
-          } catch (error) {
-              res.status(500).json({message:"serverda xatolik",error:error.message})
-          }
+      try {
+            const { id } = req.params;
+            const index = users.findIndex(user => user.id === parseInt(id));
+    
+    
+            users[index] = { ...users[index], ...req.body };
+            fs.writeFileSync("./database/users.json", JSON.stringify(users, null, 4));
+    
+            res.json({ message: "User updated successfully" });
+        } catch (error) {
+            res.status(500).json({ message: "Server error", error: error.message });
+        }
 }
 
 
